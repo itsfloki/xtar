@@ -17,6 +17,16 @@ fn main() {
 }
 
 fn run(config: &Config) -> Result<(), Box<dyn Error>> {
+    // print help message
+    if config.options.contains(&'h') {
+        println!("xtar [options] [archive-file] [file or dir to be archived]");
+        println!("\nOPTIONS:");
+        println!("-c to archive file");
+        println!("-x to extract archive file");
+
+        return Ok(());
+    }
+
     // write archive file
     if config.options.contains(&'c') {
         let file = File::create(&config.archive_file)?;

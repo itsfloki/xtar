@@ -19,7 +19,7 @@ impl Config {
 
         let archive_file = match args.next() {
             Some(f) => f,
-            None => return Err("archive_file arguments missing..."),
+            None => String::new(),
         };
 
         for arg in args {
